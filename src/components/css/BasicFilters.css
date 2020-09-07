@@ -1,0 +1,24 @@
+.basicFilters {
+  border: 1px solid black;
+  margin-top: -175px;
+  flex: 0.3;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.basicFilters__type {
+  display: flex;
+  flex-direction: column;
+}
+
+.basicFilters__type > button {
+  padding: 10px;
+  margin: 10px;
+}
+
+.basicFilters__price {
+  padding: 20px;
+}
+.basicFilters__price > h4 {
+  margin: 20px 0px;
+}

@@ -1,0 +1,17 @@
+.newestMasks {
+  margin-top: -200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0.7;
+}
+
+.newestMasks > h1 {
+  padding: 20px;
+}
+
+.newestMasks__masks {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
