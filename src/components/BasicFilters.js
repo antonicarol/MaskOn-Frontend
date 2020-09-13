@@ -6,18 +6,31 @@ import axios from "../db/axios";
 import { actionTypes } from "../context/reducer";
 function BasicFilters() {
   const [priceFilter, setPriceFilter] = useState(0);
+  const [priceMethod, setPriceMethod] = useState("");
   const [filteredMasks, setfilteredMasks] = useState([]);
   const [{ masks }, dispatch] = useStateValue();
   const valuetext = (value) => {
     return `${value}€`;
   };
 
+  const handleChange = (event, newValue) => {
+    setPriceFilter(newValue);
+  };
+
   const filterType = (type) => {
     axios.get(`/api/masks/${type}`).then((result) => {
-      console.log(result.data);
       setfilteredMasks(result.data);
     });
     console.log(masks);
+  };
+
+  const filterPrice = () => {
+    console.log(priceFilter, priceMethod);
+    axios
+      .get(`/api/masks/${priceFilter.toString()}/${priceMethod}`)
+      .then((result) => {
+        setfilteredMasks(result.data);
+      });
   };
 
   useEffect(() => {
@@ -38,8 +51,7 @@ function BasicFilters() {
       <div className="basicFilters__price">
         <h4>Price Filter</h4>
         <Slider
-          value={priceFilter}
-          onChange={(e) => setPriceFilter(e.target.value)}
+          onChange={handleChange}
           defaultValue={30}
           getAriaValueText={valuetext}
           valueLabelDisplay="auto"
@@ -49,8 +61,15 @@ function BasicFilters() {
           max={100}
         />
         <div className="basicFilters__priceTypr">
-          <Button>Greater</Button>
-          <Button>Lower</Button>
+          <Button
+            onClick={() => {
+              setPriceMethod("gte");
+            }}
+          >
+            Greater
+          </Button>
+          <Button onClick={() => setPriceMethod("lte")}>Lower</Button>
+          <Button onClick={filterPrice}>Filter by Price</Button>
         </div>
       </div>
     </div>

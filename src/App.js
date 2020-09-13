@@ -1,22 +1,19 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import Home from "./components/Home";
-import { useStateValue } from "./context/StateProvider";
-import axios from "./db/axios";
-import { actionTypes } from "./context/reducer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
+import MaskDetail from "./components/MaskDetail";
 
 function App() {
-  const [{ masks }, dispatch] = useStateValue();
-
   return (
     <div className="app">
-      <Header />
       <Router>
+        <Header />
+
         <Switch>
           <Route path="/detail">
-            <h1>Detail </h1>
+            <MaskDetail />
           </Route>
           <Route path="/">
             <Home />

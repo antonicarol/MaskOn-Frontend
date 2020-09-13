@@ -1,0 +1,14 @@
+.maskDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.maskDetail__body {
+  flex: 0.8;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.maskDetail__related {
+  flex: 0.2;
+}

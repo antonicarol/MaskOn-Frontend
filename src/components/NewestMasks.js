@@ -1,35 +1,28 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./css/NewestMasks.css";
 import { useStateValue } from "../context/StateProvider";
 import MaskCard from "./MaskCard";
-import axios from "../db/axios";
-import { actionTypes } from "../context/reducer";
-
+import FlipMove from "react-flip-move";
 function NewestMasks() {
-  const [{ masks }, dispatch] = useStateValue();
+  const [{ masks }] = useStateValue();
   console.log(masks);
-  useEffect(() => {
-    console.log("Fetching Masks!");
-    axios.get("/api/masks/all").then((result) => {
-      dispatch({
-        type: actionTypes.SET_MASKS,
-        masks: result.data,
-      });
-    });
-  }, []);
-
   return (
     <div className="newestMasks">
-      <h1> Newest Masks</h1>
       <div className="newestMasks__masks">
-        {masks?.map((mask) => (
-          <MaskCard
-            title={mask.name}
-            img={mask.image}
-            descr={mask.desc}
-            price={mask.price}
-          />
-        ))}
+        <FlipMove className="newestMasks__masksFlip">
+          {masks?.map((mask) => (
+            <MaskCard
+              size="large"
+              key={mask._id}
+              title={mask.name}
+              img={mask.image}
+              descr={mask.desc}
+              price={mask.price}
+              discount={mask.discount}
+              onSale={false}
+            />
+          ))}
+        </FlipMove>
       </div>
     </div>
   );

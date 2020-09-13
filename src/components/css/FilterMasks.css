@@ -1,0 +1,22 @@
+.filterMasks {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px !important;
+  transition: transfrom 200ms ease-in;
+}
+
+.filterMasks > .MuiButtonBase-root {
+  padding: 7px !important;
+  background-color: #e4dbdb;
+  box-shadow: 5px 10px 10px -6px gray !important;
+  border-radius: 20px !important;
+  transition: transfrom 200ms ease-in;
+}
+.filterMasks > .MuiButtonBase-root:hover {
+  transform: scale(1.03);
+}

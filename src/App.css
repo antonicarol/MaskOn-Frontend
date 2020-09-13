@@ -1,0 +1,17 @@
+.app {
+  height: 100vh;
+  display: block;
+  position: relative;
+}
+
+.app::after {
+  content: "";
+  background: url("https://i.gyazo.com/fc7a79b1cada9fba07ad6b4409365888.png");
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}

@@ -6,5 +6,42 @@
 .home__shop {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.home__options {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.home__currencyExchange {
+  margin-right: 30px;
+  margin-top: 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+}
+.home__currencyExchange > h4 {
+  padding: 10px;
+  margin-right: 50px;
+}
+
+.home__selectCurrency {
+  flex: 1;
+  width: 130px;
+}
+
+.home__currencyList__item {
+  width: 100px;
+}
+
+.home__currencyList__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.home__currencyList__item > strong {
 }

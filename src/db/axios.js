@@ -1,7 +1,11 @@
 import axios from "axios";
 
-const instance = axios.create({
+const db = axios.create({
   baseURL: "http://localhost:9000",
 });
 
-export default instance;
+const currencyApi = axios.create({
+  baseURL: "https://api.exchangeratesapi.io",
+});
+
+export { db, currencyApi };
