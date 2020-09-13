@@ -11,11 +11,11 @@ import {
 } from "@material-ui/core";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import TextTruncate from "react-text-truncate";
-import { applyDiscount } from "./utils/shop";
-import { useStateValue } from "../context/StateProvider";
-import { actionTypes } from "../context/reducer";
+import { applyDiscount } from "../utils/shop";
+import { useStateValue } from "../../context/StateProvider";
+import { actionTypes } from "../../context/reducer";
 import { useHistory } from "react-router-dom";
-import { applyCurrency } from "./utils/currency";
+import { applyCurrency } from "../utils/currency";
 
 const MaskCard = forwardRef(
   ({ title, price, descr, img, size, onSale, discount }, ref) => {

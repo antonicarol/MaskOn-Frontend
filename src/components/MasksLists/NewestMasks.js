@@ -1,6 +1,6 @@
 import React from "react";
 import "./css/NewestMasks.css";
-import { useStateValue } from "../context/StateProvider";
+import { useStateValue } from "../../context/StateProvider";
 import MaskCard from "./MaskCard";
 import FlipMove from "react-flip-move";
 function NewestMasks() {

@@ -1,6 +1,6 @@
 import React from "react";
 import "./css/SaleMasks.css";
-import { useStateValue } from "../context/StateProvider";
+import { useStateValue } from "../../context/StateProvider";
 import MaskCard from "./MaskCard";
 import Ticker from "react-ticker";
 function SaleMasks() {

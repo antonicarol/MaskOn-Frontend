@@ -1,9 +1,9 @@
 import React from "react";
 import { Button, Card } from "@material-ui/core";
 import "./css/FilterMasks.css";
-import { useStateValue } from "../context/StateProvider";
-import { db } from "../db/axios";
-import { actionTypes } from "../context/reducer";
+import { useStateValue } from "../../context/StateProvider";
+import { db } from "../../db/axios";
+import { actionTypes } from "../../context/reducer";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 import ChildCareIcon from "@material-ui/icons/ChildCare";
 import NewReleasesIcon from "@material-ui/icons/NewReleases";

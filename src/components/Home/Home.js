@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useStateValue } from "../context/StateProvider";
-import NewestMasks from "./NewestMasks";
+import { useStateValue } from "../../context/StateProvider";
+import NewestMasks from "../MasksLists/NewestMasks";
 import "./css/Home.css";
-import { currencyApi, db } from "../db/axios";
-import { actionTypes } from "../context/reducer";
-import SaleMasks from "./SaleMasks";
+import { currencyApi, db } from "../../db/axios";
+import { actionTypes } from "../../context/reducer";
+import SaleMasks from "../MasksLists/SaleMasks";
 import FilterMasks from "./FilterMasks";
 import { Card, MenuItem, Select } from "@material-ui/core";
-import { setCurrencyList } from "./utils/currency";
+import { setCurrencyList } from "../utils/currency";
 
 function Home() {
   const [selCurrency, setCurrency] = useState("EUR");
