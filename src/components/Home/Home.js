@@ -10,8 +10,8 @@ import { Card, MenuItem, Select } from "@material-ui/core";
 import { setCurrencyList } from "../utils/currency";
 
 function Home() {
-  const [selCurrency, setCurrency] = useState("EUR");
   const [{ currencyList, currency }, dispatch] = useStateValue();
+  const [selCurrency, setCurrency] = useState(currency);
 
   useEffect(() => {
     db.get("/api/masks/all").then((result) => {
@@ -20,7 +20,7 @@ function Home() {
         masks: result.data,
       });
     });
-  }, [currency, dispatch]);
+  }, [currency]);
 
   useEffect(() => {
     db.get("/api/masks/onSale").then((result) => {
@@ -29,7 +29,7 @@ function Home() {
         masks: result.data,
       });
     });
-  }, [currency, dispatch]);
+  }, [currency]);
 
   useEffect(() => {
     currencyApi.get("/latest").then((result) => {
@@ -60,9 +60,7 @@ function Home() {
         },
       });
     });
-  }, [selCurrency, currency.base]);
-
-  console.log(currency);
+  }, [selCurrency]);
 
   return (
     <div className="home">
@@ -72,13 +70,12 @@ function Home() {
           <h4>Change The currency</h4>
           <Select
             onChange={(e) => setCurrency(e.target.value)}
-            plcaeholder={selCurrency}
             value={selCurrency}
             className="home__selectCurrency"
           >
             <MenuItem selected>{currency.base}</MenuItem>
             {currencyList?.map((curr) => (
-              <MenuItem value={curr}>
+              <MenuItem key={Math.random(0, 9999)} value={curr}>
                 <div className="home__currencyList__item">
                   <strong>{curr.symbol}</strong>
                   <span>{curr.name}</span>

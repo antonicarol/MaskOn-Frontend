@@ -27,7 +27,6 @@ export const actionTypes = {
 const reducer = (state, action) => {
   switch (action.type) {
     case actionTypes.SET_MASKS:
-      console.log(action);
       return {
         ...state,
         masks: action.masks,
@@ -52,21 +51,18 @@ const reducer = (state, action) => {
       };
 
     case actionTypes.SET_DETAIL_MASK_SALE:
-      console.log(action);
       return {
         ...state,
         detailMask: action.mask,
       };
 
     case actionTypes.SET_DETAIL_MASK_NEW:
-      console.log(action);
       return {
         ...state,
         detailMask: action.mask,
       };
 
     case actionTypes.CHANGE_CURRECY:
-      console.log(action);
       return {
         ...state,
         currency: action.currency,

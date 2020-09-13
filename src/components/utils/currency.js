@@ -1,8 +1,6 @@
 import numeral from "numeral";
 
 export const applyCurrency = (price, diff, currency) => {
-  console.log(currency);
-
   return `${currency.base} ${currency.symbol} ${numeral(price * diff).format(
     "0.00"
   )}`;
@@ -10,7 +8,6 @@ export const applyCurrency = (price, diff, currency) => {
 
 export const setCurrencyList = (apiList) => {
   var types = [];
-  console.log(apiList);
   types.push({
     name: "EUR",
     symbol: "€",

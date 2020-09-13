@@ -5,7 +5,6 @@ import MaskCard from "./MaskCard";
 import Ticker from "react-ticker";
 function SaleMasks() {
   const [{ masksOnSale }, dispatch] = useStateValue();
-  console.log(masksOnSale);
   return (
     <div className="saleMasks">
       <div className="saleMasks__masks">

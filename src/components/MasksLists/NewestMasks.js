@@ -5,7 +5,6 @@ import MaskCard from "./MaskCard";
 import FlipMove from "react-flip-move";
 function NewestMasks() {
   const [{ masks }] = useStateValue();
-  console.log(masks);
   return (
     <div className="newestMasks">
       <div className="newestMasks__masks">
