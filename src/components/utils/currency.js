@@ -6,6 +6,10 @@ export const applyCurrency = (price, diff, currency) => {
   )}`;
 };
 
+export const applyCurrencySale = (price, diff, currency) => {
+  return numeral(price * diff).format("0.00");
+};
+
 export const setCurrencyList = (apiList) => {
   var types = [];
   types.push({

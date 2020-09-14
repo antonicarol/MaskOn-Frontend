@@ -15,7 +15,8 @@ import { applyDiscount } from "../utils/shop";
 import { useStateValue } from "../../context/StateProvider";
 import { actionTypes } from "../../context/reducer";
 import { useHistory } from "react-router-dom";
-import { applyCurrency } from "../utils/currency";
+import { applyCurrency, applyCurrencySale } from "../utils/currency";
+import toastr from "toastr";
 
 const MaskCard = forwardRef(
   ({ title, price, descr, img, size, onSale, discount }, ref) => {
@@ -37,14 +38,28 @@ const MaskCard = forwardRef(
       history.push("/detail");
     };
 
+    const addToBasket = () => {
+      const mask = masks.find((m) => m.name === title);
+      console.log(mask);
+      dispatch({
+        type: actionTypes.ADD_TO_BASKET,
+        mask: mask,
+      });
+      toastr.options = {
+        positionClass: "toast-top-right",
+        hideDuration: 200,
+        timeOut: 1000,
+      };
+      setTimeout(() => toastr.success("Item Added to the basket"), 200);
+    };
+
     return (
       <Card
         ref={ref}
-        onClick={handleClick}
         elevation={4}
         className={`maskCard--${size} ${onSale && "maskCard--small--onSale"}`}
       >
-        <CardActionArea>
+        <CardActionArea onClick={handleClick}>
           <CardMedia
             image={img}
             title="Mask"
@@ -79,7 +94,7 @@ const MaskCard = forwardRef(
                 )}`}
               </Typography>
               <IconButton>
-                <ShoppingBasketIcon fontSize="large" />
+                <ShoppingBasketIcon onClick={addToBasket} fontSize="large" />
               </IconButton>
             </CardActions>
           </>
@@ -88,10 +103,18 @@ const MaskCard = forwardRef(
             <hr></hr>
             <CardActions className="maskCard__actions--small">
               <Typography className="maskCard__price--small">
-                {`${currency?.symbol}${price.$numberDecimal}`}
+                {`${currency?.symbol}${applyCurrency(
+                  price.$numberDecimal,
+                  currency.prevDiff,
+                  currency
+                )}`}
               </Typography>
               <Typography>{`${currency?.symbol}${applyDiscount(
-                price.$numberDecimal,
+                applyCurrencySale(
+                  price.$numberDecimal,
+                  currency.prevDiff,
+                  currency
+                ),
                 discount.$numberDecimal
               )}`}</Typography>
             </CardActions>

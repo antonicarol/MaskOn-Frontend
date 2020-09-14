@@ -5,7 +5,9 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PublicIcon from "@material-ui/icons/Public";
 import { Link } from "react-router-dom";
+import { useStateValue } from "../context/StateProvider";
 function Header() {
+  const [{ basket }] = useStateValue();
   return (
     <div className="header">
       <Link to="/">
@@ -38,10 +40,12 @@ function Header() {
           <PublicIcon />
           <span>Covid-19 Tracker</span>
         </div>
-        <div className="header__nav__optionBasket">
-          <ShoppingBasketIcon />
-          <span>0 items</span>
-        </div>
+        <Link to="/checkout">
+          <div className="header__nav__optionBasket">
+            <ShoppingBasketIcon />
+            <span>{basket?.length} items</span>
+          </div>
+        </Link>
       </div>
     </div>
   );

@@ -1,0 +1,17 @@
+.checkout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout__items {
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.checkout__totals {
+  padding: 20px;
+  margin: 20px;
+  margin-right: 30px;
+}

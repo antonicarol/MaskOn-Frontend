@@ -9,6 +9,7 @@ export const initialState = {
     prevDiff: 1,
     symbol: "€",
   },
+  basket: [],
 };
 
 export const actionTypes = {
@@ -22,6 +23,8 @@ export const actionTypes = {
   FILTER_MASKS_PRICE_GTE: "FILTER_MASKS_PRICE_GTE",
   FILTER_MASKS_PRICE_LTE: "FILTER_MASKS_PRICE_LTE",
   CHANGE_CURRECY: "CHANGE_CURRENCY",
+  ADD_TO_BASKET: "ADD_TO_BASKET",
+  DEL_FROM_BASKET: "DEL_FROM_BASKET",
 };
 
 const reducer = (state, action) => {
@@ -72,6 +75,18 @@ const reducer = (state, action) => {
       return {
         ...state,
         currencyList: action.currencyList,
+      };
+
+    case actionTypes.ADD_TO_BASKET:
+      return {
+        ...state,
+        basket: [...state.basket, action.mask],
+      };
+
+    case actionTypes.DEL_FROM_BASKET:
+      return {
+        ...state,
+        basket: state.basket.filter((m) => m !== action.mask),
       };
 
     default:

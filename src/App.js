@@ -4,6 +4,8 @@ import Home from "./components/Home/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import MaskDetail from "./components/MaskDetail";
+import Checkout from "./components/Checkout/Checkout";
+import "toastr/build/toastr.min.css";
 
 function App() {
   return (
@@ -14,6 +16,9 @@ function App() {
         <Switch>
           <Route path="/detail">
             <MaskDetail />
+          </Route>
+          <Route path="/checkout">
+            <Checkout />
           </Route>
           <Route path="/">
             <Home />

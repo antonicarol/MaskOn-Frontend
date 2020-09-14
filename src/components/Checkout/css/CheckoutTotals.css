@@ -1,0 +1,28 @@
+.checkoutTotals {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  width: 250px !important;
+}
+
+.checkoutTotals__items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.checkoutTotals__items > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkoutTotals__total {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.checkoutTotals__total > span {
+  font-size: 20px;
+}

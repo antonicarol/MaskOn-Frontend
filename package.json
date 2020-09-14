@@ -14,7 +14,8 @@
     "react-flip-move": "^3.0.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-ticker": "^1.2.2"
+    "react-ticker": "^1.2.2",
+    "toastr": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
